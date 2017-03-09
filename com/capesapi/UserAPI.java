@@ -45,7 +45,7 @@ public class UserAPI {
 
   public static void addCape(UUID uuid, String capeId) throws IOException {
     String data = "{\"capeId\": \"" + capeId + "\"}";
-    URL url = new URL(baseURL + uuid.toString() + "/addCape");
+    URL url = new URL(baseURL + uuid.toString() + "/setCape");
     HttpURLConnection con = (HttpURLConnection) url.openConnection();
     con.setRequestMethod("POST");
     con.setDoOutput(true);
