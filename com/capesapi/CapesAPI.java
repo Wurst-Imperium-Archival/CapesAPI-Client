@@ -46,7 +46,7 @@ public class CapesAPI {
       return;
     }
 
-    CapesAPI.addCape(uuid, null);
+    CapesAPI.setCape(uuid, null);
     String url = String.format(CapesAPI.BASE_URL, uuid);
     ResourceLocation resourceLocation = new ResourceLocation(
             String.format("capesapi/capes/%s.png", new Date().getTime())
@@ -60,7 +60,7 @@ public class CapesAPI {
 
       @Override
       public void skinAvailable() {
-        CapesAPI.addCape(uuid, resourceLocation);
+        CapesAPI.setCape(uuid, resourceLocation);
         CapesAPI.pendingRequests.remove(uuid);
       }
     });
@@ -69,12 +69,12 @@ public class CapesAPI {
   }
 
   /**
-   * Add a cape to the map
+   * Set the cape of a player
    *
    * @param uuid             UUID of the Player to store the cape for
    * @param resourceLocation ResourceLocation of the cape
    */
-  public static void addCape(UUID uuid, ResourceLocation resourceLocation) {
+  public static void setCape(UUID uuid, ResourceLocation resourceLocation) {
     CapesAPI.capes.put(uuid, resourceLocation);
   }
 
