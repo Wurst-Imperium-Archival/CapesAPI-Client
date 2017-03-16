@@ -7,6 +7,7 @@ It's suggested that you also have info somewhere (like a `.capes` command) on wh
 ## Versions
 | Implementation Version | Minecraft Version(s) |
 |------------------------|----------------------|
+| 2.2.1                  | 1.11.2/1.10.2        |
 | 2.2.0                  | 1.11.2/1.10.2        |
 | 2.1.1                  | 1.11.2/1.10.2        |
 | 2.1.0                  | 1.11.2/1.10.2        |
