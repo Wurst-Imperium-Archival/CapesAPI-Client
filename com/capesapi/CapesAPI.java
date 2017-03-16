@@ -55,7 +55,7 @@ public class CapesAPI {
     ThreadDownloadImageData threadDownloadImageData = new ThreadDownloadImageData(null, url, null, new IImageBuffer() {
       @Override
       public BufferedImage parseUserSkin(BufferedImage image) {
-        return CapeUtils.parseCape(image);
+        return image
       }
 
       @Override
