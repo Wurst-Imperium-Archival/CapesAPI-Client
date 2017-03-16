@@ -1,3 +1,10 @@
+## NOTE TO NON-OPTIFINE DEVELOPERS
+### Please be aware that this implementation was built with Optifine, so there's a chance if you use this that you may have to alter it slighty.
+
+## NOTE TO 1.8 DEVELOPERS
+### Some of the methods in 1.8 MCP are still obfuscated, so you may have issues with wrong method names. Just rename the methods in the implementation, or you can manually write it. 
+### Back up your files **FIRST** before you do anything.
+
 # CapesAPI Implemention
 ## About
 This client implementation is built for client developers who want an easy way to throw [CapesAPI](http://capesapi.com) integration into their clients.
