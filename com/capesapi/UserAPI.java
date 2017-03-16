@@ -13,7 +13,7 @@ import java.util.UUID;
  * A class to help communicate with the CapesAPI API.
  *
  * @author Matthew Hatcher
- * @version 2.1.0, February 2017
+ * @version 2.2.1, February 2017
  */
 
 public class UserAPI {
