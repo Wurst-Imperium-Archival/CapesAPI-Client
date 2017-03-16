@@ -4,7 +4,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IImageBuffer;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.src.CapeUtils;
 import net.minecraft.util.ResourceLocation;
 
 import java.awt.image.BufferedImage;
