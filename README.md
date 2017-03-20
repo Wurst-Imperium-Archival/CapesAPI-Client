@@ -20,6 +20,74 @@ It's suggested that you also have info somewhere (like a `.capes` command) on wh
 | 2.1.0                  | 1.11.2/1.10.2        |
 | 2.0.0                  | 1.11.2/1.10.2        |
 
-## Instruction
-![Image](https://www.dropbox.com/s/3hrxpgfsq4ow41z/Image1.PNG?dl=1)
-![Image](https://www.dropbox.com/s/dmwr3nzo78bwzh0/Image2.PNG?dl=1)
+# Installation
+
+CapesAPI requires two small modifications in `net.minecraft.client.entity.AbstractClientPlayer` in order to work. What these modifications looks like depends on whether or not OptiFine is used.
+
+## Standard
+```java
+public AbstractClientPlayer(World worldIn, GameProfile playerProfile)
+{
+    super(worldIn, playerProfile);
+
+    // CapesAPI
+    CapesAPI.loadCape(playerProfile.getId());
+}
+```
+
+```java
+@Nullable
+public ResourceLocation getLocationCape()
+{
+    // CapesAPI
+    if(CapesAPI.hasCape(getGameProfile().getId()))
+        return CapesAPI.getCape(getGameProfile().getId());
+
+    NetworkPlayerInfo networkplayerinfo = this.getPlayerInfo();
+    return networkplayerinfo == null ? null : networkplayerinfo.getLocationCape();
+}
+```
+
+## With OptiFine
+```java
+public AbstractClientPlayer(World worldIn, GameProfile playerProfile)
+{
+    super(worldIn, playerProfile);
+    this.nameClear = playerProfile.getName();
+
+    if(this.nameClear != null && !this.nameClear.isEmpty())
+    {
+        this.nameClear = StringUtils.stripControlCodes(this.nameClear);
+    }
+
+    CapeUtils.downloadCape(this);
+    PlayerConfigurations.getPlayerConfiguration(this);
+
+    // CapesAPI
+    CapesAPI.loadCape(playerProfile.getId());
+}
+```
+
+```java
+@Nullable
+public ResourceLocation getLocationCape()
+{
+    if(!Config.isShowCapes())
+    {
+        return null;
+    }else if(this.locationOfCape != null)
+    {
+        return this.locationOfCape;
+
+        // CapesAPI
+    }else if(CapesAPI.hasCape(getGameProfile().getId()))
+        return CapesAPI.getCape(getGameProfile().getId());
+
+    else
+    {
+        NetworkPlayerInfo networkplayerinfo = this.getPlayerInfo();
+        return networkplayerinfo == null ? null
+            : networkplayerinfo.getLocationCape();
+    }
+}
+```
