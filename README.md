@@ -1,30 +1,32 @@
-### NOTE TO NON-OPTIFINE DEVELOPERS
-#### Please be aware that this implementation was built with Optifine, so there's a chance if you use this that you may have to alter it slighty.
+# CapesAPI Client Implemention
 
-### NOTE TO 1.8 DEVELOPERS
-#### Some of the methods in 1.8 MCP are still obfuscated, so you may have issues with wrong method names. Just rename the methods in the implementation, or you can manually write it. 
-#### Back up your files **FIRST** before you do anything.
-
-# CapesAPI Implemention
 ## About
-This client implementation is built for client developers who want an easy way to throw [CapesAPI](http://capesapi.com) integration into their clients.
 
-It's suggested that you also have info somewhere (like a `.capes` command) on where they can change their capes and such.
+This is a fork of the CapesAPI Client Implementation by halfpetal. Differences between this version and the original are as follows:
 
-## Versions
-| Implementation Version | Minecraft Version(s) |
-|------------------------|----------------------|
-| 2.2.1                  | 1.11.2/1.10.2        |
-| 2.2.0                  | 1.11.2/1.10.2        |
-| 2.1.1                  | 1.11.2/1.10.2        |
-| 2.1.0                  | 1.11.2/1.10.2        |
-| 2.0.0                  | 1.11.2/1.10.2        |
+- This version includes installation instructions for non-OptiFine clients.
 
-# Installation
+- This version uses text-based installation instructions instead of screenshots, allowing users to quickly copy-paste the required modifications into their clients.
 
-CapesAPI requires two small modifications in `net.minecraft.client.entity.AbstractClientPlayer` in order to work. What these modifications looks like depends on whether or not OptiFine is used.
+- This version includes pre-compiled releases, allowing users to use CapesAPI as a library instead of adding the `com.capesapi` package to their client's source code.
 
-## Standard
+- The source code of this version has been formatted according to the Wurst-Imperium code style.
+
+## Compatibility
+
+This CapesAPI implementation is compatible to Minecraft 1.11.2, 1.11, 1.10.2, 1.10, 1.9.4 and 1.9.
+
+It is also possible to run this implementation on Minecraft 1.8 with some additional modifications.
+
+This implementation does not require OptiFine, but it is compatible with it.
+
+## Installation
+
+This CapesAPI implementation can either be installed by adding the `com.capesapi` package to your client's source code or by adding the pre-compiled version to your client's libraries.
+
+After that, CapesAPI requires two small modifications in `net.minecraft.client.entity.AbstractClientPlayer` in order to work. What these modifications look like depends on whether or not OptiFine is used.
+
+### Standard
 ```java
 public AbstractClientPlayer(World worldIn, GameProfile playerProfile)
 {
@@ -48,7 +50,7 @@ public ResourceLocation getLocationCape()
 }
 ```
 
-## With OptiFine
+### With OptiFine
 ```java
 public AbstractClientPlayer(World worldIn, GameProfile playerProfile)
 {
