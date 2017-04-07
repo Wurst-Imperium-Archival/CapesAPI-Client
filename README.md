@@ -77,15 +77,15 @@ public ResourceLocation getLocationCape()
     if(!Config.isShowCapes())
     {
         return null;
-    }else if(this.locationOfCape != null)
-    {
-        return this.locationOfCape;
 
         // CapesAPI
     }else if(CapesAPI.hasCape(getGameProfile().getId()))
         return CapesAPI.getCape(getGameProfile().getId());
 
-    else
+    else if(this.locationOfCape != null)
+    {
+        return this.locationOfCape;
+    }else
     {
         NetworkPlayerInfo networkplayerinfo = this.getPlayerInfo();
         return networkplayerinfo == null ? null
